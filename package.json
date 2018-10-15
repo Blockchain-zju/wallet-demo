@@ -1,0 +1,12 @@
+{
+  "name": "wallet-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Blockchain-zju/wallet-demo.git",
+  "author": "awmleer <awmleer@sparker.xyz>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "eosjs": "^16.0.9"
+  }
+}
