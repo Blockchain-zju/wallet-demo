@@ -28,7 +28,13 @@ const signatureProvider = new JsSignatureProvider([account.keys.active_key.priva
 
 const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
 
-(async () => {
+
+async function getBalance() {
+  const result = await rpc.get_currency_balance('zjubcatokent', 'zjuwalletapp');
+  console.log(result);
+}
+
+async function testTransfer() {
   const result = await api.transact({
     actions: [{
       account: 'zjubcatokent',
@@ -48,6 +54,7 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
     blocksBehind: 3,
     expireSeconds: 30,
   });
+
   console.dir(result);
   //{ transaction_id: 'f0febc8814f586ea93f139404c97f87d989969b7abdb0bbe506d5ea975c9eab6',
   //   processed:
@@ -61,4 +68,6 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
   //      scheduled: false,
   //      action_traces: [ [Object] ],
   //      except: null } }
-})();
+}
+
+getBalance();
